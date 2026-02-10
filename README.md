@@ -1,4 +1,4 @@
-# use-smart-fetch
+# cod-smart-fetch
 
 A professional, type-safe, and feature-rich React hook for data fetching. It simplifies network requests by handling loading states, errors, data caching, debouncing, and more, all while providing a modern API for both automatic and manual execution.
 
@@ -15,9 +15,9 @@ A professional, type-safe, and feature-rich React hook for data fetching. It sim
 ## Installation
 
 ```bash
-npm install use-smart-fetch
+npm install cod-smart-fetch
 # or
-yarn add use-smart-fetch
+yarn add cod-smart-fetch
 ```
 
 ## Quick Start
@@ -26,7 +26,7 @@ yarn add use-smart-fetch
 Ideal for loading data when a component mounts.
 
 ```tsx
-import { useSmartFetch } from 'use-smart-fetch';
+import { useSmartFetch } from 'cod-smart-fetch';
 
 interface User {
   id: number;
@@ -50,7 +50,7 @@ const UserProfile = () => {
 Ideal for form submissions or actions triggered by user interaction.
 
 ```tsx
-import { useSmartFetch } from 'use-smart-fetch';
+import { useSmartFetch } from 'cod-smart-fetch';
 
 const CreatePost = () => {
   const { post, isLoading } = useSmartFetch();
@@ -81,7 +81,7 @@ You can configure a base URL and global headers (like Authorization tokens) usin
 
 ```tsx
 // app.tsx
-import { SmartFetchProvider } from 'use-smart-fetch';
+import { SmartFetchProvider } from 'cod-smart-fetch';
 
 const App = () => (
   <SmartFetchProvider config={{

@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codinnovation/use-smart-fetch.git"
+    "url": "git+https://github.com/codinnovation/cod-smart-fetch.git"
   },
   "keywords": [
     "react",
@@ -34,7 +34,7 @@
   },
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/codinnovation/use-smart-fetch/issues"
+    "url": "https://github.com/codinnovation/cod-smart-fetch/issues"
   },
-  "homepage": "https://github.com/codinnovation/use-smart-fetch#readme"
+  "homepage": "https://github.com/codinnovation/cod-smart-fetch#readme"
 }
