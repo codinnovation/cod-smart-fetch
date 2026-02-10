@@ -1,6 +1,6 @@
 {
   "name": "cod-smart-fetch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A smart React hook for fetching data with built-in loading, error, and data states.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
