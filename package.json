@@ -1,5 +1,5 @@
 {
-  "name": "@cod/use-smart-fetch",
+  "name": "cod-smart-fetch",
   "version": "1.0.0",
   "description": "A smart React hook for fetching data with built-in loading, error, and data states.",
   "main": "dist/index.js",
