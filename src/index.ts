@@ -26,6 +26,7 @@ export interface UseSmartFetchResult<T> extends FetchState<T> {
     patch: (url: string, body: any, headers?: HeadersInit) => Promise<T | null>;
     remove: (url: string, headers?: HeadersInit) => Promise<T | null>;
     upload: (url: string, fileOrFiles: File | File[] | FormData, fieldName?: string, headers?: HeadersInit, method?: 'POST' | 'PUT') => Promise<T | null>;
+    mutate: (data: T | ((prevData: T | null) => T | null), shouldRevalidate?: boolean) => void | Promise<T | null>;
 }
 
 export function useSmartFetch<T = any>(initialOptions: UseSmartFetchOptions<T> = {}): UseSmartFetchResult<T> {
@@ -189,6 +190,22 @@ export function useSmartFetch<T = any>(initialOptions: UseSmartFetchOptions<T> =
         return execute({ url, method, body, headers });
     }, [execute]);
 
+    const mutate = useCallback((
+        data: T | ((prevData: T | null) => T | null),
+        shouldRevalidate: boolean = false
+    ) => {
+        setState(prev => {
+            const newData = typeof data === 'function'
+                ? (data as (prevData: T | null) => T | null)(prev.data)
+                : data;
+            return { ...prev, data: newData };
+        });
+
+        if (shouldRevalidate) {
+            return execute();
+        }
+    }, [execute]);
+
     return {
         ...state,
         execute,
@@ -198,6 +215,7 @@ export function useSmartFetch<T = any>(initialOptions: UseSmartFetchOptions<T> =
         patch,
         remove,
         upload,
+        mutate,
     };
 }
 

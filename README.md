@@ -142,6 +142,20 @@ const handleUpload = async (file: File) => {
 };
 ```
 
+### Manual State Updates (Mutate)
+You can manually update the cached data or convert it using `mutate`. This is useful for optimistic updates.
+
+```tsx
+const { data, mutate } = useSmartFetch({ url: '/api/user', autoFetch: true });
+
+const updateName = () => {
+    // Optimistically update the name
+    mutate((prev) => ({ ...prev, name: 'John Doe' }), false);
+    
+    // Config: true to trigger a re-fetch after mutation
+};
+```
+
 ## API Documentation
 
 ### `useSmartFetch<T>(options?: UseSmartFetchOptions)`
@@ -169,3 +183,4 @@ const handleUpload = async (file: File) => {
 | `patch` | `(url, body, headers?)` | Helper for PATCH requests. |
 | `remove` | `(url, headers?)` | Helper for DELETE requests. |
 | `upload` | `(url, files, name?)` | Helper for file uploads. |
+| `mutate` | `(data, revalidate?)` | Manually updates data state. |
